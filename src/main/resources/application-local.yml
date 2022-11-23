@@ -1,0 +1,39 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+    show-sql: false
+    properties:
+      hibernate:
+        show-sql: false
+        enable_lazy_load_no_trans: true
+        temp:
+          use_jdbc_metadata_defaults: false
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+  datasource:
+    url: jdbc:postgresql://localhost:5433/ride
+    username: postgres
+    password: postgres
+    hikari:
+      connection-timeout: 180000
+      maximum-pool-size: 3
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+management.endpoints.web.exposure.include: refresh
+
+feign:
+  client:
+    config:
+      crypto-transaction-service:  
+        connectTimeout: 50000
+        readTimeout: 50000
+        loggerLevel: FULL
+
+server:
+  port: 8080
+  max-http-header-size: 32000
+  servlet: 
+    context-path: /api

@@ -1,0 +1,16 @@
+spring:
+  profiles:
+    active: local
+  application:
+    name: ride-application
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+info:
+  app:
+    name: Ride Middleware
+    description: Ride Middleware
+    version: 0.0.1-SNAPSHOT
+    encoding: UTF-8
